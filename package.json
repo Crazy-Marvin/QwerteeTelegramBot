@@ -1,0 +1,35 @@
+{
+  "name": "qwertee-telegram-bot",
+  "version": "1.0.0",
+  "description": "Qwertee Automated Bot for Telegram",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crazy-Marvin/QwerteeTelegramBot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "qwertee",
+    "auto",
+    "info",
+    "advertisement"
+  ],
+  "author": "Crazy Marvin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Crazy-Marvin/QwerteeTelegramBot/issues"
+  },
+  "homepage": "https://github.com/Crazy-Marvin/QwerteeTelegramBot#readme",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "mongoose": "^5.4.19",
+    "node-schedule": "^1.3.2",
+    "puppeteer": "^1.13.0",
+    "request-promise": "^4.2.4",
+    "telebot": "^1.2.6"
+  }
+}
