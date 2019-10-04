@@ -30,3 +30,10 @@ patch:
         patched: '2019-07-04T16:03:59.818Z'
     - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
         patched: '2019-07-04T16:03:59.818Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - puppeteer > https-proxy-agent:
+        patched: '2019-10-04T02:36:54.979Z'
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T02:36:54.979Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-04T02:36:54.979Z'
