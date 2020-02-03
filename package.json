@@ -33,7 +33,7 @@
     "puppeteer": "^1.13.0",
     "request-promise": "^4.2.4",
     "telebot": "^1.2.6",
-    "snyk": "^1.278.2"
+    "snyk": "^1.290.1"
   },
   "snyk": true
 }
