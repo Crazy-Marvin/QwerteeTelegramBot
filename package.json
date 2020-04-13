@@ -31,7 +31,7 @@
     "mongoose": "^5.7.5",
     "node-schedule": "^1.3.2",
     "puppeteer": "^1.13.0",
-    "request-promise": "^4.2.4",
+    "request-promise": "^4.2.5",
     "telebot": "^1.2.6",
     "snyk": "^1.290.1"
   },
