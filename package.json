@@ -28,7 +28,7 @@
   "homepage": "https://github.com/Crazy-Marvin/QwerteeTelegramBot#readme",
   "dependencies": {
     "dotenv": "^7.0.0",
-    "mongoose": "^5.12.3",
+    "mongoose": "^5.12.12",
     "node-schedule": "^2.0.0",
     "puppeteer": "^2.1.1",
     "request-promise": "^4.2.6",
