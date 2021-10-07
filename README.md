@@ -1,6 +1,6 @@
 [![Telegram Product Hunt Bot](https://img.shields.io/badge/Telegram-Bot-blue?logo=telegram)](https://t.me/AwesomeQwerteeBot)
 [![GitHub Actions](https://github.com/Crazy-Marvin/QwerteeTelegramBot/actions/workflows/ci.yml/badge.svg)](https://github.com/Crazy-Marvin/QwerteeTelegramBot/actions/workflows/ci.yml)
-![healthchecks.io](https://healthchecks.io/badge/396c7d03-faf7-4562-9f83-1194d0/n-TwoPva-2/ProductHunt.shields)
+![healthchecks.io](https://healthchecks.io/badge/396c7d03-faf7-4562-9f83-1194d0/I1QbwtCZ/Qwertee.shields)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/QwerteeTelegramBot)](https://github.com/Crazy-Marvin/QwerteeTelegramBot/blob/trunk/LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/Crazy-Marvin/QwerteeTelegramBot.svg?style=flat)](https://github.com/Crazy-Marvin/QwerteeTelegramBot/commits)
 [![Releases](https://img.shields.io/github/downloads/Crazy-Marvin/QwerteeTelegramBot/total.svg?style=flat)](https://github.com/Crazy-Marvin/QwerteeTelegramBot/releases)
