@@ -16,7 +16,7 @@
 
 This [bot](http://t.me/AwesomeQwerteeBot) shows you today's posts from [Qwertee](https://www.qwertee.com/r/63ab80873f). 
 
-#### Commands
+### Commands
 
 _TBD_   
 
