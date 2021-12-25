@@ -9,6 +9,19 @@ schedule.scheduleJob('2 * * * *', startGlobalUpdate);
 // Global update at 11 PM
 schedule.scheduleJob('1 23 * * *', startGlobalSend);
 
+// Healthchecks.io ping
+if (process.env.HEALTH_CHECK_URL) {
+  schedule.scheduleJob('0 0-59/5 * * * *', pingHealthCheck);
+}
+
+function pingHealthCheck() {
+  console.log('Pinging healthchecks.io');
+  https.get(process.env.HEALTH_CHECK_URL)
+  .on('error', (err) => {
+    console.log(`Ping Failed: ${err}`)
+  })
+}
+
 // Scraping tees from the website
 function startGlobalUpdate(force = false) {
     function init() {
