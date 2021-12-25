@@ -16,9 +16,14 @@
 
 This [bot](http://t.me/AwesomeQwerteeBot) shows you today's posts from [Qwertee](https://www.qwertee.com/r/63ab80873f). 
 
+![QwerteeTelegramBot](https://user-images.githubusercontent.com/15004217/147385691-653fa749-9e6f-4900-a7a3-331606df4176.PNG)
+
 ### Commands
 
-_TBD_   
+/start - This starts the bot  
+Tees - This sends the tees  
+Settings - This lets you configure the bot  
+Close - This closes the keyboard  
 
 ### Requirements
 
@@ -30,7 +35,7 @@ _TBD_
 
 ### Setup
 
-_TBD_
+Look into [HOWTOSETUP.md](https://github.com/Crazy-Marvin/QwerteeTelegramBot/blob/trunk/HOWTOSETUP.md).
 
 ### Contributing
 
