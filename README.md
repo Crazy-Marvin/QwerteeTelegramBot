@@ -1,4 +1,4 @@
-[![Telegram Product Hunt Bot](https://img.shields.io/badge/Telegram-Bot-blue?logo=telegram)](https://t.me/AwesomeQwerteeBot)
+[![Telegram Qwertee Bot](https://img.shields.io/badge/Telegram-Bot-blue?logo=telegram)](https://t.me/AwesomeQwerteeBot)
 [![GitHub Actions](https://github.com/Crazy-Marvin/QwerteeTelegramBot/actions/workflows/ci.yml/badge.svg)](https://github.com/Crazy-Marvin/QwerteeTelegramBot/actions/workflows/ci.yml)
 ![healthchecks.io](https://healthchecks.io/badge/396c7d03-faf7-4562-9f83-1194d0/I1QbwtCZ/Qwertee.shields)
 [![License](https://img.shields.io/github/license/Crazy-Marvin/QwerteeTelegramBot)](https://github.com/Crazy-Marvin/QwerteeTelegramBot/blob/trunk/LICENSE)
@@ -10,7 +10,7 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/d6eb9ee5488548dca0536ecd93e16ae0)](https://www.codacy.com/gh/Crazy-Marvin/QwerteeTelegramBot/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Crazy-Marvin/QwerteeTelegramBot&amp;utm_campaign=Badge_Grade)
 [![Dependabot](https://badgen.net/badge/icon/dependabot?icon=dependabot&label)](https://python.org/)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/Crazy-Marvin/QwerteeTelegramBot)
-[![Telegram Product Hunt Bot](https://img.shields.io/badge/Node.js-green?logo=nodedotjs)](https://t.me/AwesomeQwerteeBot)
+[![Telegram Qwertee Bot](https://img.shields.io/badge/Node.js-green?logo=nodedotjs)](https://t.me/AwesomeQwerteeBot)
 
 # Qwertee Telegram Bot
 
