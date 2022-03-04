@@ -1,5 +1,20 @@
+const fs = require('fs');
+const schedule = require('node-schedule');
 const TeleBot = require('telebot');
 const db = require('./db');
+const MontlyStats = require('./MontlyStats');
+
+const stats = new MontlyStats();
+
+schedule.scheduleJob({hour: 0, minute: 0, dayOfWeek: 1, dayOfMonth: [1,2,3,4,5,6,7]}, () => {
+  if (process.env.STATS_RECEIVER) {
+    bot.sendMessage(process.env.STATS_RECEIVER, `New users: ${stats.newUsers}\nEnabled general: ${stats.enabledGeneral}\nEnabled specials: ${stats.enabledSpecials}`)
+  }
+  for (let key in stats) {
+    stats[key] = 0
+  }
+  stats.lastUpdate = Date.now();
+})
 
 function initBot() {
     // Setting "bot" variable to global scope and creating new instance with token provided from the .env file
@@ -8,10 +23,14 @@ function initBot() {
     });
 
     // If the user is new -- adding them to our database
-    bot.on('*', (msg) => {
+    bot.on('/start', (msg) => {
         db.getUser(msg.from).then(result => {
             if (result.length <= 0) {
                 db.saveUser(msg.from);
+                stats.newUsers += 1;
+                stats.enabledGeneral += 1;
+                stats.enabledSpecials += 1;
+                stats.lastUpdate = Date.now();
             }
         })
         .catch(result => console.log(result));
@@ -98,6 +117,10 @@ function initBot() {
         return bot.sendMessage(msg.from.id, 'Main menu', mainMenuKeyboard());
     });
 
+    bot.on('/stats', msg => {
+      return bot.sendMessage(msg.from.id, `New users: ${stats.newUsers}\nEnabled general: ${stats.enabledGeneral}\nEnabled specials: ${stats.enabledSpecials}`);
+    })
+
     // Performing action for each menu action
     bot.on('text', async msg => {
         if (msg.text == 'Tees') {
@@ -123,11 +146,41 @@ function initBot() {
         } else if (msg.text == 'Notifications') {
             return bot.sendMessage(msg.from.id, 'Notifications settings menu', await notificationsKeyboard(msg.from));
         } else if (/(Disable|Enable) general/.test(msg.text)) {
-            await db.updateUser(msg.from, 'notifications.general', msg.text.includes('Enable'));
-            return bot.sendMessage(msg.from.id, `General notification (11PM) ${msg.text.includes('Enable') ? 'enabled' : 'disabled'}`, await notificationsKeyboard(msg.from));
+            let enable = false;
+            const [user] = await db.getUser(msg.from);
+            if (!user.notifications.general) {
+              enable = true;
+              stats.enabledGeneral += 1;
+              stats.lastUpdate = Date.now();
+              db.updateUser(msg.from, 'notifications.generalEnabledAt', Date.now());
+            } else {
+              const enabledAt = new Date(user.notifications.generalEnabledAt);
+              const now = new Date();
+              if (now.getUTCFullYear() == enabledAt.getUTCFullYear()) {
+                stats.enabledGeneral -= 1;
+                stats.lastUpdate = Date.now();
+              }
+            }
+            await db.updateUser(msg.from, 'notifications.general', enable);
+            return bot.sendMessage(msg.from.id, `General notification (11PM) ${enable ? 'enabled' : 'disabled'}`, await notificationsKeyboard(msg.from));
         } else if (/(Disable|Enable) specials/.test(msg.text)) {
-            await db.updateUser(msg.from, 'notifications.specials', msg.text.includes('Enable'));
-            return bot.sendMessage(msg.from.id, `Specials notification ${msg.text.includes('Enable') ? 'enabled' : 'disabled'}`, await notificationsKeyboard(msg.from));
+            let enable = false;
+            const [user] = await db.getUser(msg.from)
+            if (!user.notifications.specials) {
+              enable = true;
+              stats.enabledSpecials += 1;
+              stats.lastUpdate = Date.now();
+              db.updateUser(msg.from, 'notifications.specialsEnabledAt', Date.now());
+            } else {
+              const enabledAt = new Date(user.notifications.specialsEnabledAt);
+              const now = new Date();
+              if (now.getUTCFullYear() == enabledAt.getUTCFullYear()) {
+                stats.enabledSpecials -= 1;
+                stats.lastUpdate = Date.now();  
+              }
+            }
+            await db.updateUser(msg.from, 'notifications.specials', enable);
+            return bot.sendMessage(msg.from.id, `Specials notification ${enable ? 'enabled' : 'disabled'}`, await notificationsKeyboard(msg.from));
         } else if (msg.text == 'Main menu') {
             return bot.sendMessage(msg.from.id, 'Main menu', mainMenuKeyboard());
         } else if (msg.text == 'Close') {
@@ -184,6 +237,24 @@ function sendTees(user) {
             }
         })
         .catch(error => console.log(error));
+}
+
+
+process.on('SIGTERM', (code) => {
+  exitHandler(code);
+})
+
+process.on('SIGINT', (code) => {
+  exitHandler(code);
+})
+
+process.on('exit', (code) => {
+  exitHandler(code);
+})
+
+function exitHandler(code) {
+  fs.writeFileSync('./stats.json', JSON.stringify(stats));
+  process.exit(code);
 }
 
 module.exports = {

@@ -35,7 +35,9 @@ const userSchema = new Schema({
     notifications: {
         variation: String,
         general: Boolean,
-        specials: Boolean
+        generalEnabledAt: Number,
+        specials: Boolean,
+        specialsEnabledAt: Number,
     }
 });
 
@@ -113,7 +115,9 @@ async function saveUser(user) {
             variation: 'zoom',
             $schema: true,
             general: true,
-            specials: true
+            generalEnabledAt: Date.now(),
+            specials: true,
+            specialsEnabledAt: Date.now(),
         }
     });
 
