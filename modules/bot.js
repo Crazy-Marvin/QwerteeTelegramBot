@@ -2,7 +2,7 @@ const fs = require('fs');
 const schedule = require('node-schedule');
 const TeleBot = require('telebot');
 const db = require('./db');
-const MontlyStats = require('./MonthlyStats');
+const MontlhyStats = require('./MonthlyStats');
 
 const stats = new MontlyStats();
 
