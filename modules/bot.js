@@ -4,7 +4,7 @@ const TeleBot = require('telebot');
 const db = require('./db');
 const MontlhyStats = require('./MonthlyStats');
 
-const stats = new MontlyStats();
+const stats = new MonthlyStats();
 
 schedule.scheduleJob({hour: 0, minute: 0, dayOfWeek: 1, dayOfMonth: [1,2,3,4,5,6,7]}, () => {
   if (process.env.STATS_RECEIVER) {
