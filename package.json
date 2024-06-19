@@ -30,7 +30,7 @@
     "dotenv": "^16.0.0",
     "mongoose": "^6.12.0",
     "node-schedule": "^2.1.0",
-    "puppeteer": "^13.6.0",
+    "puppeteer": "^22.11.2",
     "request-promise": "^4.2.6",
     "telebot": "^1.4.1",
     "snyk": "^1.1064.0"
